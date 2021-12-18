@@ -12,11 +12,9 @@ const io = socket(server, {
     }
 });
 
-// require('dotenv').config({path: './config/.env'});
-
-console.log(path.join(__dirname, 'reactapp', 'build', 'index.html'));
-
-app.use('/index', express.static(path.join(__dirname, 'reactapp', 'build', 'index.html')));
+app.get('/test', (req, res)=>{
+    res.json("working");
+})
 
 io.on('connect', (socket) => {
 
@@ -43,7 +41,7 @@ io.on('connect', (socket) => {
 
 
 
-const PORT = 5000 || process.env.PORT
+const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, ()=>{
     console.log('server running on port '+PORT);
