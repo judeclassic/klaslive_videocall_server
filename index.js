@@ -7,7 +7,7 @@ const socket = require('socket.io');
 
 const io = socket(server, {
     cors :{
-        origin: 'http://localhost:3000',
+        origin: 'https://klaslive.herokuapp.com',
         methods: ["GET", "POST"]
     }
 });
