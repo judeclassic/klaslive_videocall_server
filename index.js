@@ -7,13 +7,16 @@ const server = http.createServer(app);
 const socket = require("socket.io");
 const io = socket(server, {
     cors :{
-        //origin: 'https://klaslive.herokuapp.com',
         origin: '*',
         methods: ["GET", "POST"]
     }
 });
 
 app.use(cors());
+
+app.get('/test', (req, res)=>{
+    res.send('working server');
+})
 
 const users = {};
 
